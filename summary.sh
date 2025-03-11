@@ -1,9 +1,15 @@
 #!/bin/bash
 
-if [ -d $1 ]; then
-	ls $1;
-fi
+for file in "$@"
+do
+	if [ -d $file ]; then
+		echo "$file is a directory."
+		ls $file;
+	fi
 
-if [ -f $1 ]; then
-	head -5 $1;
-fi
+	if [ -f $file ]; then
+		echo "$file is a file."
+		head -5 $file;
+	fi
+done
+
